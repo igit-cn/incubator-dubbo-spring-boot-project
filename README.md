@@ -1,15 +1,14 @@
 # Apache Dubbo Spring Boot Project 
 
-[![Build Status](https://travis-ci.org/apache/incubator-dubbo-spring-boot-project.svg?branch=master)](https://travis-ci.org/apache/incubator-dubbo-spring-boot-project) 
-[![codecov](https://codecov.io/gh/apache/incubator-dubbo-spring-boot-project/branch/master/graph/badge.svg)](https://codecov.io/gh/apache/incubator-dubbo-spring-boot-project)
-![license](https://img.shields.io/github/license/apache/incubator-dubbo-spring-boot-project.svg)
+[![Build Status](https://travis-ci.org/apache/dubbo-spring-boot-project.svg?branch=master)](https://travis-ci.org/apache/dubbo-spring-boot-project) 
+[![codecov](https://codecov.io/gh/apache/dubbo-spring-boot-project/branch/master/graph/badge.svg)](https://codecov.io/gh/apache/dubbo-spring-boot-project)
+![license](https://img.shields.io/github/license/apache/dubbo-spring-boot-project.svg)
 
-[Apache Dubbo(incubating)](https://github.com/apache/incubator-dubbo) Spring Boot Project makes it easy to create [Spring Boot](https://github.com/spring-projects/spring-boot/) application using Dubbo as RPC Framework. What's more, it also provides 
-
+[Apache Dubbo](https://github.com/apache/dubbo) Spring Boot Project makes it easy to create [Spring Boot](https://github.com/spring-projects/spring-boot/) application using Dubbo as RPC Framework. What's more, it also provides:
 * [auto-configure features](dubbo-spring-boot-autoconfigure) (e.g., annotation-driven, auto configuration, externalized configuration).
 * [production-ready features](dubbo-spring-boot-actuator) (e.g., security, health checks, externalized configuration).
 
-> Apache Dubbo (incubating) |ˈdʌbəʊ| is a high-performance, light weight, java based RPC framework. Dubbo offers three key functionalities, which include interface based remote call, fault tolerance & load balancing, and automatic service registration & discovery.
+> Apache Dubbo  |ˈdʌbəʊ| is a high-performance, light weight, java based RPC framework. Dubbo offers three key functionalities, which include interface based remote call, fault tolerance & load balancing, and automatic service registration & discovery.
 
 ## [中文说明](README_CN.md)
 
@@ -19,8 +18,8 @@
 You can introduce the latest `dubbo-spring-boot-starter` to your project by adding the following dependency to your pom.xml
 ```xml
 <properties>
-    <spring-boot.version>2.1.1.RELEASE</spring-boot.version>
-    <dubbo.version>2.7.0</dubbo.version>
+    <spring-boot.version>2.2.6.RELEASE</spring-boot.version>
+    <dubbo.version>2.7.6</dubbo.version>
 </properties>
     
 <dependencyManagement>
@@ -42,26 +41,7 @@ You can introduce the latest `dubbo-spring-boot-starter` to your project by addi
             <type>pom</type>
             <scope>import</scope>
         </dependency>
-
-        <dependency>
-            <groupId>org.apache.dubbo</groupId>
-            <artifactId>dubbo</artifactId>
-            <version>${dubbo.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework</groupId>
-                    <artifactId>spring</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>javax.servlet</groupId>
-                    <artifactId>servlet-api</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>log4j</groupId>
-                    <artifactId>log4j</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+      
     </dependencies>
 </dependencyManagement>
 
@@ -70,13 +50,8 @@ You can introduce the latest `dubbo-spring-boot-starter` to your project by addi
     <dependency>
         <groupId>org.apache.dubbo</groupId>
         <artifactId>dubbo-spring-boot-starter</artifactId>
-        <version>2.7.0</version>
-    </dependency>
-    
-    <dependency>
-        <groupId>org.apache.dubbo</groupId>
-        <artifactId>dubbo</artifactId>
-    </dependency>
+        <version>2.7.6</version>
+    </dependency>    
 </dependencies>
 ```
 
@@ -97,6 +72,15 @@ If your project failed to resolve the dependency, try to add the following repos
 </repositories>
 ```
 
+
+### Legacy Versions
+
+If you still use the legacy Dubbo whose version is less than 2.7.0, please use the following Spring Boot starters:
+
+| Dubbo Spring Boot | Dubbo  | Spring Boot |
+| ----------------- | ------ | ----------- |
+| [0.2.1.RELEASE](https://github.com/apache/dubbo-spring-boot-project/tree/0.2.x)     | 2.6.5+ | 2.x         |
+| [0.1.2.RELEASE](https://github.com/apache/dubbo-spring-boot-project/tree/0.1.x)     | 2.6.5+ | 1.x         |
 
 
 
@@ -226,16 +210,16 @@ More details, please refer to [Samples](dubbo-spring-boot-samples).
 
 Having trouble with Dubbo Spring Boot? We’d like to help!
 
-- If you are upgrading, read the [release notes](https://github.com/dubbo/dubbo-spring-boot-project/releases) for upgrade instructions and "new and noteworthy" features.
+- If you are upgrading, read the [release notes](https://github.com/apache/dubbo-spring-boot-project/releases) for upgrade instructions and "new and noteworthy" features.
 - Ask a question - You can subscribe [Dubbo User Mailling List](mailto:dubbo+subscribe@googlegroups.com).
-- Report bugs at [github.com/dubbo/dubbo-spring-boot-project/issues](https://github.com/dubbo/dubbo-spring-boot-project/issues).
+- Report bugs at [github.com/apache/dubbo-spring-boot-project/issues](https://github.com/apache/dubbo-spring-boot-project/issues).
 
 
 
 
 ## Building from Source
 
-If you want to try out thr latest features of Dubbo Spring Boot, it can be easily built with the [maven wrapper](https://github.com/takari/maven-wrapper). Your JDK is 1.8 or above.
+If you want to try out the latest features of Dubbo Spring Boot, it can be easily built with the [maven wrapper](https://github.com/takari/maven-wrapper). Your JDK is 1.8 or above.
 
 ```
 $ ./mvnw clean install
@@ -263,7 +247,7 @@ The main usage of `dubbo-spring-boot-parent` is providing dependencies managemen
 
 ### [dubbo-spring-boot-actuator](dubbo-spring-boot-actuator)
 
-`dubbo-spring-boot-actuator` provides production-ready features (e.g., [health checks](https://github.com/dubbo/dubbo-spring-boot-project/tree/master/dubbo-spring-boot-actuator#health-checks), [endpoints](https://github.com/dubbo/dubbo-spring-boot-project/tree/master/dubbo-spring-boot-actuator#endpoints), and [externalized configuration](https://github.com/dubbo/dubbo-spring-boot-project/tree/master/dubbo-spring-boot-actuator#externalized-configuration)).
+`dubbo-spring-boot-actuator` provides production-ready features (e.g., [health checks](https://github.com/apache/dubbo-spring-boot-project/tree/master/dubbo-spring-boot-actuator#health-checks), [endpoints](https://github.com/apache/dubbo-spring-boot-project/tree/master/dubbo-spring-boot-actuator#endpoints), and [externalized configuration](https://github.com/apache/dubbo-spring-boot-project/tree/master/dubbo-spring-boot-actuator#externalized-configuration)).
 
 
 
@@ -280,3 +264,10 @@ The samples project of Dubbo Spring Boot that includes:
 - [Auto-Configuaration Samples](dubbo-spring-boot-samples/auto-configure-samples)
 - [Externalized Configuration Samples](dubbo-spring-boot-samples/externalized-configuration-samples)
 - [Registry Zookeeper Samples](dubbo-spring-boot-samples/dubbo-registry-zookeeper-samples)
+- [Registry Nacos Samples](dubbo-spring-boot-samples/dubbo-registry-nacos-samples)
+
+
+
+## License
+
+Apache Dubbo spring boot project is under the Apache 2.0 license. See the [LICENSE](https://github.com/apache/dubbo-spring-boot-project/blob/master/LICENSE) file for details.

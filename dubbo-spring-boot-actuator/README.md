@@ -6,7 +6,7 @@
 
 ## Content
 
-1. [Main Content](https://github.com/dubbo/dubbo-spring-boot-project)
+1. [Main Content](https://github.com/apache/dubbo-spring-boot-project)
 2. [Integrate with Maven](#integrate-with-maven)
 3. [Health Checks](#health-checks)
 4. [Endpoints](#endpoints)
@@ -22,7 +22,7 @@ You can introduce the latest `dubbo-spring-boot-actuator` to your project by ad
 <dependency>
     <groupId>org.apache.dubbo</groupId>
     <artifactId>dubbo-spring-boot-actuator</artifactId>
-    <version>2.7.0</version>
+    <version>2.7.4.1</version>
 </dependency>
 ```
 
@@ -171,15 +171,15 @@ Actuator endpoint `dubbo` supports Actuator Endpoints :
 {
   "timestamp": 1516623290166,
   "versions": {
-    "dubbo-spring-boot": "2.7.0",
-    "dubbo": "2.7.0"
+    "dubbo-spring-boot": "2.7.5",
+    "dubbo": "2.7.5"
   },
   "urls": {
-    "dubbo": "https://github.com/apache/incubator-dubbo/",
+    "dubbo": "https://github.com/apache/dubbo/",
     "google-group": "dev@dubbo.apache.org",
-    "github": "https://github.com/apache/incubator-dubbo-spring-boot-project",
-    "issues": "https://github.com/apache/incubator-dubbo-spring-boot-project/issues",
-    "git": "https://github.com/apache/incubator-dubbo-spring-boot-project.git"
+    "github": "https://github.com/apache/dubbo-spring-boot-project",
+    "issues": "https://github.com/apache/dubbo-spring-boot-project/issues",
+    "git": "https://github.com/apache/dubbo-spring-boot-project.git"
   }
 }
 ```
