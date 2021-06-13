@@ -21,8 +21,8 @@
 您可以为您的工程引入最新 `dubbo-spring-boot-starter` 的发布，增加以下依赖到工程的 `pom.xml` 文件中：
 ```xml
 <properties>
-    <spring-boot.version>2.2.6.RELEASE</spring-boot.version>
-    <dubbo.version>2.7.6</dubbo.version>
+    <spring-boot.version>2.3.0.RELEASE</spring-boot.version>
+    <dubbo.version>2.7.8</dubbo.version>
 </properties>
     
 <dependencyManagement>
@@ -72,7 +72,7 @@
     <dependency>
         <groupId>org.apache.dubbo</groupId>
         <artifactId>dubbo-spring-boot-starter</artifactId>
-        <version>2.7.6</version>
+        <version>2.7.8</version>
     </dependency>
     
     <dependency>
@@ -141,7 +141,7 @@ public interface DemoService {
 1. 实现 `DemoService` 接口
 
     ```java
-    @Service(version = "1.0.0")
+    @DubboService(version = "1.0.0")
     public class DefaultDemoService implements DemoService {
     
         /**
@@ -177,7 +177,7 @@ public interface DemoService {
     # Spring boot application
     spring.application.name=dubbo-auto-configuration-provider-demo
     # Base packages to scan Dubbo Component: @org.apache.dubbo.config.annotation.Service
-    dubbo.scan.base-packages=org.apache.dubbo.spring.boot.demo.provider.service
+    dubbo.scan.base-packages=org.apache.dubbo.spring.boot.sample.provider.service
 
     # Dubbo Application
     ## The default value of dubbo.application.name is ${spring.application.name}
@@ -197,7 +197,7 @@ public interface DemoService {
 ### 实现 Dubbo 服务消费方
 
 
-1. 通过 `@Reference` 注入 `DemoService` :
+1. 通过 `@DubboReference` 注入 `DemoService` :
 
     ```java
     @EnableAutoConfiguration
@@ -205,7 +205,7 @@ public interface DemoService {
     
         private final Logger logger = LoggerFactory.getLogger(getClass());
     
-        @Reference(version = "1.0.0", url = "dubbo://127.0.0.1:12345")
+        @DubboReference(version = "1.0.0", url = "dubbo://127.0.0.1:12345")
         private DemoService demoService;
     
         public static void main(String[] args) {
@@ -244,9 +244,9 @@ public interface DemoService {
 
 如果您在使用 Dubbo Spring Boot 中遇到任何问题或者有什么建议? 我们非常需要您的支持!
 
-- 如果您需要升级版本，请提前阅读[发布公告](https://github.com/apache/dubbo-spring-boot-project/releases)，了解最新的特性和问题修复。
+- 如果您需要升级版本，请提前阅读[发布公告](https://github.com/dubbo/dubbo-spring-boot-project/releases)，了解最新的特性和问题修复。
 - 如果您遇到任何问题 ，您可以订阅 [Dubbo 用户邮件列表](mailto:dubbo+subscribe@googlegroups.com)。
-- 问题反馈，您可以在 [issues](https://github.com/apache/dubbo-spring-boot-project/issues) 提出您遇到的使用问题。
+- 问题反馈，您可以在 [issues](https://github.com/dubbo/dubbo-spring-boot-project/issues) 提出您遇到的使用问题。
 
 
 
@@ -288,8 +288,8 @@ Dubbo Spring Boot 示例工程包括:
 
 - [自动装配](dubbo-spring-boot-samples/auto-configure-samples)
 - [外部化配置](dubbo-spring-boot-samples/externalized-configuration-samples)
-- [Zookeeper 注册中心](dubbo-spring-boot-samples/dubbo-registry-zookeeper-samples)
-- [Nacos 注册中心](dubbo-spring-boot-samples/dubbo-registry-nacos-samples)
+- [Zookeeper 注册中心](https://github.com/apache/dubbo-spring-boot-project/tree/master/dubbo-spring-boot-samples/registry-samples/zookeeper-samples)
+- [Nacos 注册中心](https://github.com/apache/dubbo-spring-boot-project/tree/master/dubbo-spring-boot-samples/registry-samples/nacos-samples)
 
 
 

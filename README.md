@@ -18,8 +18,8 @@
 You can introduce the latest `dubbo-spring-boot-starter` to your project by adding the following dependency to your pom.xml
 ```xml
 <properties>
-    <spring-boot.version>2.2.6.RELEASE</spring-boot.version>
-    <dubbo.version>2.7.6</dubbo.version>
+    <spring-boot.version>2.3.0.RELEASE</spring-boot.version>
+    <dubbo.version>2.7.8</dubbo.version>
 </properties>
     
 <dependencyManagement>
@@ -50,7 +50,7 @@ You can introduce the latest `dubbo-spring-boot-starter` to your project by addi
     <dependency>
         <groupId>org.apache.dubbo</groupId>
         <artifactId>dubbo-spring-boot-starter</artifactId>
-        <version>2.7.6</version>
+        <version>2.7.8</version>
     </dependency>    
 </dependencies>
 ```
@@ -86,7 +86,7 @@ If you still use the legacy Dubbo whose version is less than 2.7.0, please use t
 
 ### Build from Source
 
-If you'd like to attempt to experience latest features, you also can build from source as follow:
+If you'd like to attempt to experience the latest features, you also can build from the source code as follow:
 
 1. Maven install current project in your local repository.
 > Maven install = `mvn install`
@@ -117,7 +117,7 @@ public interface DemoService {
 1. Service Provider implements `DemoService`
 
     ```java
-    @Service(version = "1.0.0")
+    @DubboService(version = "1.0.0")
     public class DefaultDemoService implements DemoService {
     
         /**
@@ -150,7 +150,7 @@ public interface DemoService {
     # Spring boot application
     spring.application.name=dubbo-auto-configuration-provider-demo
     # Base packages to scan Dubbo Component: @org.apache.dubbo.config.annotation.Service
-    dubbo.scan.base-packages=org.apache.dubbo.spring.boot.demo.provider.service
+    dubbo.scan.base-packages=org.apache.dubbo.spring.boot.sample.provider.service
 
     # Dubbo Application
     ## The default value of dubbo.application.name is ${spring.application.name}
@@ -176,7 +176,7 @@ public interface DemoService {
     
         private final Logger logger = LoggerFactory.getLogger(getClass());
     
-        @Reference(version = "1.0.0", url = "dubbo://127.0.0.1:12345")
+        @DubboReference(version = "1.0.0", url = "dubbo://127.0.0.1:12345")
         private DemoService demoService;
     
         public static void main(String[] args) {
@@ -200,7 +200,7 @@ public interface DemoService {
         name: dubbo-auto-configure-consumer-sample
     ```
 
-If `DubboProviderDemo` works well, please mark sure `DubboProviderDemo` is started.
+If `DubboProviderDemo` works well, please make sure `DubboProviderDemo` is started.
 
 More details, please refer to [Samples](dubbo-spring-boot-samples).
 
@@ -263,8 +263,8 @@ The samples project of Dubbo Spring Boot that includes:
 
 - [Auto-Configuaration Samples](dubbo-spring-boot-samples/auto-configure-samples)
 - [Externalized Configuration Samples](dubbo-spring-boot-samples/externalized-configuration-samples)
-- [Registry Zookeeper Samples](dubbo-spring-boot-samples/dubbo-registry-zookeeper-samples)
-- [Registry Nacos Samples](dubbo-spring-boot-samples/dubbo-registry-nacos-samples)
+- [Registry Zookeeper Samples](https://github.com/apache/dubbo-spring-boot-project/tree/master/dubbo-spring-boot-samples/registry-samples/zookeeper-samples)
+- [Registry Nacos Samples](https://github.com/apache/dubbo-spring-boot-project/tree/master/dubbo-spring-boot-samples/registry-samples/nacos-samples)
 
 
 
